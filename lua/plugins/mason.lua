@@ -16,9 +16,9 @@ return {
                 ensure_installed = {
                     "lua_ls",
                     "omnisharp",
-                    "emmet-language-server",
-                    "json-lsp",
-                    "typescript-language-server",
+                    "emmet_language_server",
+                    "jsonls",
+                    "ts_ls",
                     "pylsp",
                     "angularls"
                 },
