@@ -11,9 +11,17 @@ return {
     },
     {
         "williamboman/mason-lspconfig.nvim",
-        config = function(_, opts)
+        config = function()
             require("mason-lspconfig").setup {
-                ensure_installed = { "lua_ls", "omnisharp" },
+                ensure_installed = {
+                    "lua_ls",
+                    "omnisharp",
+                    "emmet-language-server",
+                    "json-lsp",
+                    "typescript-language-server",
+                    "pylsp",
+                    "angularls"
+                },
             }
         end
 
