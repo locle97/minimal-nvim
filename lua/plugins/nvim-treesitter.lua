@@ -10,6 +10,12 @@ return {
             "c_sharp",
             "python",
             "json"
-        }
+        },
+        highlight = {
+            enable = true,
+            use_languagetree = true,
+        },
+
+        indent = { enable = true },
     }
 }

@@ -4,7 +4,7 @@ require("nvchad.lspconfig").defaults()
 local lspconfig = require("lspconfig")
 
 -- List server
-local servers = { "emmet_language_server", "ts_ls", "html", "cssls", "omnisharp", "jsonls", "pylsp" }
+local servers = { "emmet_language_server", "ts_ls", "html", "cssls", "jsonls", "pylsp" }
 
 local nvlsp = require "nvchad.lspconfig"
 
@@ -16,3 +16,18 @@ for _, lsp in ipairs(servers) do
     capabilities = nvlsp.capabilities,
   }
 end
+
+local pid = vim.fn.getpid()
+local util = require "lspconfig/util"
+
+lspconfig.omnisharp.setup {
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  cmd = {
+    "/home/lpl212757/.local/share/nvim/mason/packages/omnisharp/omnisharp",
+    "--languageserver",
+    "--hostPID",
+    tostring(pid),
+  },
+  root_dir = util.root_pattern("*.sln", "*.csproj"),
+}
