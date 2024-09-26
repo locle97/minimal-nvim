@@ -1,17 +1,26 @@
 return {
-    "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    cmd = "Telescope",
-    opts = function()
-      return require "config.telescope"
-    end,
-    config = function(_, opts)
-      local telescope = require "telescope"
-      telescope.setup(opts)
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        cmd = "Telescope",
+        opts = function()
+            return require "config.telescope"
+        end,
+        config = function(_, opts)
+            local telescope = require "telescope"
+            telescope.setup(opts)
 
-      -- load extensions
-      for _, ext in ipairs(opts.extensions_list) do
-        telescope.load_extension(ext)
-      end
-    end,
-  }
+            -- load extensions
+            for _, ext in ipairs(opts.extensions_list) do
+                telescope.load_extension(ext)
+            end
+        end,
+    },
+    {
+        "ahmedkhalf/project.nvim",
+        lazy = false,
+        config = function()
+            require("project_nvim").setup {}
+        end,
+    }
+}
