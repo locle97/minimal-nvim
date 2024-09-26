@@ -1,4 +1,4 @@
-vim.cmd.colorscheme "catppuccin"
+require("nvchad.options")
 
 local o = vim.o
 local g = vim.g
