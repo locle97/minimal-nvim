@@ -6,4 +6,3 @@ require("config.lazy")
 
 -- Themes and Mappings
 require("mappings")
-require("themes")

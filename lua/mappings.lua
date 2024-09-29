@@ -29,19 +29,10 @@ end, { desc = "General Format file" })
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP Diagnostic loclist" })
 
 -- tabufline
-map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
-
-map("n", "<tab>", function()
-  require("nvchad.tabufline").next()
-end, { desc = "buffer goto next" })
-
-map("n", "<S-tab>", function()
-  require("nvchad.tabufline").prev()
-end, { desc = "buffer goto prev" })
-
-map("n", "<leader>x", function()
-  require("nvchad.tabufline").close_buffer()
-end, { desc = "buffer close" })
+map("n", "<leader>b", "<cmd>Telescope buffers<CR>", { desc = "Show buffers" })
+map("n", "<tab>", "<cmd>bnext<CR>", { desc = "buffer goto next" })
+map("n", "<S-tab>", "<cmd>bprevious<CR>", { desc = "buffer goto prev" })
+map("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "buffer close" })
 
 -- Comment
 map("n", "<leader>/", "gcc", { desc = "Toggle Comment", remap = true })
@@ -153,9 +144,5 @@ map("n", "<leader>f", function() vim.diagnostic.open_float() end, { desc = "floa
 map("n", "<leader>q", function() vim.diagnostic.setloclist() end, { desc = "Diagnostic setloclist", })
 map("n", "<C-p>", "<cmd> Telescope find_files <CR>", { desc = "find files" })
 map("n", "<leader>fp", "<cmd> Telescope projects <CR>", { desc = "Project" })
-
-unmap('n', "<Tab>")
-unmap('n', "<S-Tab>")
-unmap('n', "<leader>x")
 
 -- End user config

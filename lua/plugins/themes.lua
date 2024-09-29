@@ -12,6 +12,7 @@ return {
                 },
                 transparent_background = true, -- disables setting the background color.
             })
+            require("themes")
         end
     },
     {
