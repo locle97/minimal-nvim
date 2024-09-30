@@ -24,7 +24,7 @@ lspconfig.omnisharp.setup {
   on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
   cmd = {
-    "/home/lpl212757/.local/share/nvim/mason/packages/omnisharp/omnisharp",
+    "omnisharp",
     "--languageserver",
     "--hostPID",
     tostring(pid),
