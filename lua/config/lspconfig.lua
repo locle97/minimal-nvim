@@ -10,24 +10,24 @@ local nvlsp = require "nvchad.lspconfig"
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = nvlsp.on_attach,
-    on_init = nvlsp.on_init,
-    capabilities = nvlsp.capabilities,
-  }
+    lspconfig[lsp].setup {
+        on_attach = nvlsp.on_attach,
+        on_init = nvlsp.on_init,
+        capabilities = nvlsp.capabilities,
+    }
 end
 
 local pid = vim.fn.getpid()
 local util = require "lspconfig/util"
 
 lspconfig.omnisharp.setup {
-  on_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
-  cmd = {
-    "omnisharp",
-    "--languageserver",
-    "--hostPID",
-    tostring(pid),
-  },
-  root_dir = util.root_pattern("*.sln", "*.csproj"),
+    on_attach = nvlsp.on_attach,
+    capabilities = nvlsp.capabilities,
+    cmd = {
+        "omnisharp",
+        "--languageserver",
+        "--hostPID",
+        tostring(pid),
+    },
+    root_dir = util.root_pattern("*.sln", "*.csproj"),
 }
