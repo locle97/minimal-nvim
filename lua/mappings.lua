@@ -144,4 +144,7 @@ map("n", "<leader>q", function() vim.diagnostic.setloclist() end, { desc = "Diag
 map("n", "<C-p>", "<cmd> Telescope find_files <CR>", { desc = "find files" })
 map("n", "<leader>fp", "<cmd> Telescope projects <CR>", { desc = "Project" })
 
+-- Lazygit
+map("n", "<leader>lg", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })
+
 -- End user config
