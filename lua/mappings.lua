@@ -53,6 +53,7 @@ map("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "telescope git
 map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
 map("n", "<leader>pt", "<cmd>Telescope terms<CR>", { desc = "telescope pick hidden term" })
 map("n", "<leader>th", "<cmd>Telescope themes<CR>", { desc = "telescope nvchad themes" })
+map("n", "<C-p>", "<cmd> Telescope find_files <CR>", { desc = "telescope find files" })
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
 map(
     "n",
@@ -60,6 +61,7 @@ map(
     "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
     { desc = "telescope find all files" }
 )
+map("n", "<leader>fp", "<cmd> Telescope projects <CR>", { desc = "Project" })
 
 -- terminal
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
@@ -134,19 +136,27 @@ map("n", "gr", function() require("telescope.builtin").lsp_references() end,
     { desc = "lsp references", noremap = true, silent = true })
 map("n", "go", function() require("telescope.builtin").lsp_document_symbols() end,
     { desc = "lsp document symbols", noremap = true, silent = true })
+
+-- Open code action
 map("n", "<C-y>", function() vim.lsp.buf.code_action() end, { desc = "lsp code_action", })
-map("n", "<F2>", function() vim.lsp.buf.rename() end, { desc = "lsp rename", })
-map("n", "<leader>fm", function() vim.lsp.buf.format { async = true } end, { desc = "LSP formatting", })
-map("v", "<leader>fm", function() vim.lsp.buf.format { async = true } end, { desc = "lsp formatting", })
-map("n", "[d", function() vim.diagnostic.goto_prev() end, { desc = "goto prev" })
-map("n", "]d", function() vim.diagnostic.goto_next() end, { desc = "goto_next" })
-map("n", "<leader>q", function() vim.diagnostic.setloclist() end, { desc = "diagnostic setloclist", })
+map("v", "<C-y>", function() vim.lsp.buf.code_action() end, { desc = "lsp code_action", })
+
+-- Open Diagnostic of current workspace
 map("n", "<leader>f", function() vim.diagnostic.open_float(nil, { border = 'rounded' }) end,
     { desc = "floating diagnostic", })
+map("n", "<leader>q", function() require("telescope.builtin").diagnostics({ bufnr = 0 }) end,
+    { desc = "Diagnostic setloclist", })
+map("n", "<leader>fq", function() require("telescope.builtin").diagnostics() end,
+    { desc = "lsp document symbols", noremap = true, silent = true })
+map("n", "[d", function() vim.diagnostic.goto_prev() end, { desc = "goto prev" })
+map("n", "]d", function() vim.diagnostic.goto_next() end, { desc = "goto_next" })
 
-map("n", "<leader>q", function() vim.diagnostic.setloclist() end, { desc = "Diagnostic setloclist", })
-map("n", "<C-p>", "<cmd> Telescope find_files <CR>", { desc = "find files" })
-map("n", "<leader>fp", "<cmd> Telescope projects <CR>", { desc = "Project" })
+-- Lsp rename
+map("n", "<F2>", function() vim.lsp.buf.rename() end, { desc = "lsp rename", })
+
+-- Lsp format code
+map("n", "<leader>fm", function() vim.lsp.buf.format { async = true } end, { desc = "LSP formatting", })
+map("v", "<leader>fm", function() vim.lsp.buf.format { async = true } end, { desc = "lsp formatting", })
 
 -- Git
 map("n", "<leader>gl", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })
