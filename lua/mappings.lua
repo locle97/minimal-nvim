@@ -22,7 +22,7 @@ map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "Toggle relative number" })
 map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "Toggle nvcheatsheet" })
 
 map("n", "<leader>fm", function()
-  require("conform").format { lsp_fallback = true }
+    require("conform").format { lsp_fallback = true }
 end, { desc = "General Format file" })
 
 -- global lsp mappings
@@ -55,10 +55,10 @@ map("n", "<leader>pt", "<cmd>Telescope terms<CR>", { desc = "telescope pick hidd
 map("n", "<leader>th", "<cmd>Telescope themes<CR>", { desc = "telescope nvchad themes" })
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
 map(
-  "n",
-  "<leader>fa",
-  "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
-  { desc = "telescope find all files" }
+    "n",
+    "<leader>fa",
+    "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
+    { desc = "telescope find all files" }
 )
 
 -- terminal
@@ -66,47 +66,47 @@ map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
 -- new terminals
 map("n", "<leader>h", function()
-  require("nvchad.term").new { pos = "sp" }
+    require("nvchad.term").new { pos = "sp" }
 end, { desc = "terminal new horizontal term" })
 
 map("n", "<leader>v", function()
-  require("nvchad.term").new { pos = "vsp" }
+    require("nvchad.term").new { pos = "vsp" }
 end, { desc = "terminal new vertical window" })
 
 -- toggleable
 map({ "n", "t" }, "<A-v>", function()
-  require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
+    require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
 end, { desc = "terminal toggleable vertical term" })
 
 map({ "n", "t" }, "<A-h>", function()
-  require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
+    require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
 end, { desc = "terminal toggleable horizontal term" })
 
 map({ "n", "t" }, "<A-i>", function()
-  require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
+    require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
 end, { desc = "terminal toggle floating term" })
 
 -- whichkey
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
 
 map("n", "<leader>wk", function()
-  vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ")
+    vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ")
 end, { desc = "whichkey query lookup" })
 
 -- blankline
 map("n", "<leader>cc", function()
-  local config = { scope = {} }
-  config.scope.exclude = { language = {}, node_type = {} }
-  config.scope.include = { node_type = {} }
-  local node = require("ibl.scope").get(vim.api.nvim_get_current_buf(), config)
+    local config = { scope = {} }
+    config.scope.exclude = { language = {}, node_type = {} }
+    config.scope.include = { node_type = {} }
+    local node = require("ibl.scope").get(vim.api.nvim_get_current_buf(), config)
 
-  if node then
-    local start_row, _, end_row, _ = node:range()
-    if start_row ~= end_row then
-      vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start_row + 1, 0 })
-      vim.api.nvim_feedkeys("_", "n", true)
+    if node then
+        local start_row, _, end_row, _ = node:range()
+        if start_row ~= end_row then
+            vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start_row + 1, 0 })
+            vim.api.nvim_feedkeys("_", "n", true)
+        end
     end
-  end
 end, { desc = "blankline jump to current context" })
 
 -- add yours here
@@ -120,17 +120,20 @@ map("i", "jk", "<ESC>")
 -- n, v, i, t = mode names
 
 -- Lspconfig Code action
-map("n", "<C-y>", function() vim.lsp.buf.code_action() end , { desc = "lsp code_action", })
-map("n", "<C-.>", function() vim.lsp.buf.code_action() end , { desc = "lsp code_action", })
+map("n", "<C-y>", function() vim.lsp.buf.code_action() end, { desc = "lsp code_action", })
+map("n", "<C-.>", function() vim.lsp.buf.code_action() end, { desc = "lsp code_action", })
 
 -- User config
 -- LSPConfig
-map("n", "gD", function() vim.lsp.buf.declaration() end, { desc = "lsp declaration", noremap=true, silent=true })
+map("n", "gD", function() vim.lsp.buf.declaration() end, { desc = "lsp declaration", noremap = true, silent = true })
 map("n", "gd", function() vim.lsp.buf.definition() end, { desc = "lsp definition", noremap = true, silent = true })
 map("n", "K", function() vim.lsp.buf.hover() end, { desc = "lsp hover", })
-map("n", "gi", function() require("telescope.builtin").lsp_implementations() end, { desc = "lsp implementation", noremap = true, silent = true })
-map("n", "gr", function() require("telescope.builtin").lsp_references() end, { desc = "lsp references", noremap = true, silent = true})
-map("n", "go", function() require("telescope.builtin").lsp_document_symbols() end, { desc = "lsp document symbols", noremap = true, silent = true})
+map("n", "gi", function() require("telescope.builtin").lsp_implementations() end,
+    { desc = "lsp implementation", noremap = true, silent = true })
+map("n", "gr", function() require("telescope.builtin").lsp_references() end,
+    { desc = "lsp references", noremap = true, silent = true })
+map("n", "go", function() require("telescope.builtin").lsp_document_symbols() end,
+    { desc = "lsp document symbols", noremap = true, silent = true })
 map("n", "<C-y>", function() vim.lsp.buf.code_action() end, { desc = "lsp code_action", })
 map("n", "<F2>", function() vim.lsp.buf.rename() end, { desc = "lsp rename", })
 map("n", "<leader>fm", function() vim.lsp.buf.format { async = true } end, { desc = "LSP formatting", })
@@ -138,7 +141,8 @@ map("v", "<leader>fm", function() vim.lsp.buf.format { async = true } end, { des
 map("n", "[d", function() vim.diagnostic.goto_prev() end, { desc = "goto prev" })
 map("n", "]d", function() vim.diagnostic.goto_next() end, { desc = "goto_next" })
 map("n", "<leader>q", function() vim.diagnostic.setloclist() end, { desc = "diagnostic setloclist", })
-map("n", "<leader>f", function() vim.diagnostic.open_float() end, { desc = "floating diagnostic", })
+map("n", "<leader>f", function() vim.diagnostic.open_float(nil, { border = 'rounded' }) end,
+    { desc = "floating diagnostic", })
 
 map("n", "<leader>q", function() vim.diagnostic.setloclist() end, { desc = "Diagnostic setloclist", })
 map("n", "<C-p>", "<cmd> Telescope find_files <CR>", { desc = "find files" })
