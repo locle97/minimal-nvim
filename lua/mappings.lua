@@ -144,7 +144,8 @@ map("n", "<leader>q", function() vim.diagnostic.setloclist() end, { desc = "Diag
 map("n", "<C-p>", "<cmd> Telescope find_files <CR>", { desc = "find files" })
 map("n", "<leader>fp", "<cmd> Telescope projects <CR>", { desc = "Project" })
 
--- Lazygit
+-- Git
 map("n", "<leader>lg", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })
+map("n", "<leader>ga", "<cmd>Gitsigns stage_buffer<CR>", { desc = "Stage current buffer" })
 
 -- End user config
