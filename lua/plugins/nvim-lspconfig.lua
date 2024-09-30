@@ -8,6 +8,9 @@ return {
         },
         config = function()
             require "config.lspconfig"
+
+            -- Using border for LspInfo
+            require('lspconfig.ui.windows').default_options.border = 'single'
         end,
     }
 }
