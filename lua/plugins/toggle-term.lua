@@ -6,7 +6,7 @@ return {
             open_mapping = [[<c-\>]],
             direction = "float",
             shade_terminals = true,
-            shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell",
+            shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "bash",
         }
     end,
 }
