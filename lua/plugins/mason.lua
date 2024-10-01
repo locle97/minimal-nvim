@@ -20,7 +20,8 @@ return {
                     "jsonls",
                     "ts_ls",
                     "pylsp",
-                    "angularls"
+                    "angularls",
+                    "netcoredbg"
                 },
             }
         end
