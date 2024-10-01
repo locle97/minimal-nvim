@@ -20,6 +20,8 @@ return {
                     end,
                 },
             }
+
+            require("dapui").setup()
         end
     }
 }
