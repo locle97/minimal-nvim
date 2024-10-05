@@ -26,3 +26,5 @@ vim.filetype.add({
     resx = "xml",
   },
 })
+
+vim.cmd('highlight St_Lsp guifg=#94e2d5')
