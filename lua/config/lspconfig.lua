@@ -42,7 +42,7 @@ lspconfig.omnisharp.setup {
         },
         RoslynExtensionsOptions = {
             -- Enables support for roslyn analyzers, code fixes and rulesets.
-            EnableAnalyzersSupport = true,
+            EnableAnalyzersSupport = false,
             -- Enables support for showing unimported types and unimported extension
             -- methods in completion lists. When committed, the appropriate using
             -- directive will be added at the top of the current file. This option can
@@ -52,12 +52,7 @@ lspconfig.omnisharp.setup {
             EnableImportCompletion = true,
             -- Only run analyzers against open files when 'enableRoslynAnalyzers' is
             -- true
-            AnalyzeOpenDocumentsOnly = true,
-        },
-        Sdk = {
-            -- Specifies whether to include preview versions of the .NET SDK when
-            -- determining which version to use for project loading.
-            IncludePrereleases = true,
+            AnalyzeOpenDocumentsOnly = false,
         },
     },
     root_dir = util.root_pattern("*.sln", "*.csproj"),
