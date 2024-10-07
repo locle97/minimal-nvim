@@ -29,7 +29,8 @@ end, { desc = "General Format file" })
 map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP Diagnostic loclist" })
 
 -- tabufline
-map("n", "<leader>b", "<cmd>Telescope buffers<CR>", { desc = "Show buffers" })
+map("n", "<leader>bb", "<cmd>Telescope buffers<CR>", { desc = "Show buffers" })
+map("n", "<leader>bo", "<cmd>Bdelete other<CR>", { desc = "Delete other buffers" })
 map("n", "<tab>", "<cmd>bnext<CR>", { desc = "buffer goto next" })
 map("n", "<S-tab>", "<cmd>bprevious<CR>", { desc = "buffer goto prev" })
 map("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "buffer close" })
