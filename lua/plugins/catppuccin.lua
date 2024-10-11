@@ -19,7 +19,10 @@ return {
                             style = { "bold" },
                         },
                     }
-                end
+                end,
+                integrations = {
+                    barbar = true
+                }
             })
             require("themes")
         end
