@@ -67,15 +67,6 @@ map("n", "<leader>fp", "<cmd> Telescope projects <CR>", { desc = "Project" })
 -- terminal
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
--- new terminals
-map("n", "<leader>h", function()
-    require("nvchad.term").new { pos = "sp" }
-end, { desc = "terminal new horizontal term" })
-
-map("n", "<leader>v", function()
-    require("nvchad.term").new { pos = "vsp" }
-end, { desc = "terminal new vertical window" })
-
 -- toggleable
 map({ "n", "t" }, "<A-v>", function()
     require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
@@ -160,5 +151,10 @@ map("v", "<leader>fm", function() vim.lsp.buf.format { async = true } end, { des
 -- Git
 map("n", "<leader>gl", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })
 map("n", "<leader>ga", "<cmd>Gitsigns stage_buffer<CR>", { desc = "Stage current buffer" })
+
+-- Harpoon
+map("n", "<C-m>", function() require('harpoon.mark').add_file() end, { desc = "Add file to harpoon" })
+map("n", "<leader>mm", function() require("harpoon.ui").toggle_quick_menu() end, { desc = "Toggle quick menu" })
+map("n", "<leader>mf", "<cmd>Telescope harpoon marks<CR>", { desc = "Open harpoon marks in Telescope" })
 
 -- End user config
