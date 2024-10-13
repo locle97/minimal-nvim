@@ -153,8 +153,8 @@ map("n", "<leader>gl", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })
 map("n", "<leader>ga", "<cmd>Gitsigns stage_buffer<CR>", { desc = "Stage current buffer" })
 
 -- Harpoon
-map("n", "<C-m>", function() require('harpoon.mark').add_file() end, { desc = "Add file to harpoon" })
-map("n", "<leader>mm", function() require("harpoon.ui").toggle_quick_menu() end, { desc = "Toggle quick menu" })
-map("n", "<leader>mf", "<cmd>Telescope harpoon marks<CR>", { desc = "Open harpoon marks in Telescope" })
+map("n", "<leader>hm", function() require('harpoon.mark').add_file() end, { desc = "Add file to harpoon" })
+map("n", "<leader>hh", function() require("harpoon.ui").toggle_quick_menu() end, { desc = "Toggle quick menu" })
+map("n", "<leader>hf", "<cmd>Telescope harpoon marks<CR>", { desc = "Toggle harpoon pickers" })
 
 -- End user config
