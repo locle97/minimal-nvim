@@ -119,7 +119,7 @@ map("n", "<C-.>", function() vim.lsp.buf.code_action() end, { desc = "lsp code_a
 -- LSPConfig
 map("n", "gD", function() vim.lsp.buf.declaration() end, { desc = "lsp declaration", noremap = true, silent = true })
 map("n", "gd", function() vim.lsp.buf.definition() end, { desc = "lsp definition", noremap = true, silent = true })
-map("n", "K", function() vim.lsp.buf.signature_help() end, { desc = "lsp hover", })
+map("n", "K", function() vim.lsp.buf.hover() end, { desc = "lsp hover", })
 map("n", "gi", function() require("telescope.builtin").lsp_implementations() end,
     { desc = "lsp implementation", noremap = true, silent = true })
 map("n", "gr", function() require("telescope.builtin").lsp_references() end,
