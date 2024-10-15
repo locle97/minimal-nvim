@@ -27,7 +27,7 @@ local options = {
         },
     },
 
-    extensions_list = { "my-harpoon" },
+    extensions_list = { "grapple" },
     extensions = {},
 }
 
