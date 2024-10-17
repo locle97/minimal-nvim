@@ -20,12 +20,29 @@ o.wrap = false
 opt.relativenumber = true
 
 vim.filetype.add({
-  -- Detect and assign filetype based on the extension of the filename
-  extension = {
-    cql = "cypher",
-    cypher = "cypher",
-    resx = "xml",
-  },
+    -- Detect and assign filetype based on the extension of the filename
+    extension = {
+        cql = "cypher",
+        cypher = "cypher",
+        resx = "xml",
+    },
 })
 
 vim.cmd('highlight St_Lsp guifg=#94e2d5')
+
+-- Netrw
+g.netrw_liststyle = 3
+g.netrw_banner = 0
+g.netrw_hide = 1
+vim.api.nvim_create_autocmd('filetype', {
+    pattern = 'netrw',
+    desc = 'Better mappings for netrw',
+    callback = function()
+        local bind = function(lhs, rhs)
+            vim.keymap.set('n', lhs, rhs, { remap = true, buffer = true })
+        end
+
+        -- edit new file
+        bind('o', '<cr>')
+    end
+})
