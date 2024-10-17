@@ -16,9 +16,23 @@ return {
                 -- Function mappings receive an object describing the node under the cursor
                 ['p'] = function(payload) print(vim.inspect(payload)) end,
                 -- String mappings are executed as vim commands
-                ['<Leader>p'] = ":echo 'hello world'<CR>",
-                ['o'] = '<cr>'
+                ['<Leader>p'] = ":echo 'hello world'<CR>"
             },
+        })
+
+        -- Modify keymap for netrw
+        vim.api.nvim_create_autocmd('filetype', {
+            pattern = 'netrw',
+            desc = 'Better mappings for netrw',
+            callback = function()
+                local bind = function(lhs, rhs)
+                    vim.keymap.set('n', lhs, rhs, { remap = true, buffer = true })
+                end
+
+                -- edit new file
+                bind('o', '<CR>')
+                bind('q', '<cmd>q<CR>')
+            end
         })
     end
 }

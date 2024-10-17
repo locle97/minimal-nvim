@@ -34,15 +34,3 @@ vim.cmd('highlight St_Lsp guifg=#94e2d5')
 g.netrw_liststyle = 3
 g.netrw_banner = 0
 g.netrw_hide = 1
-vim.api.nvim_create_autocmd('filetype', {
-    pattern = 'netrw',
-    desc = 'Better mappings for netrw',
-    callback = function()
-        local bind = function(lhs, rhs)
-            vim.keymap.set('n', lhs, rhs, { remap = true, buffer = true })
-        end
-
-        -- edit new file
-        bind('o', '<cr>')
-    end
-})
