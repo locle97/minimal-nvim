@@ -44,7 +44,7 @@ M.on_attach = function(_, bufnr)
     end, opts "NvRenamer")
 
     map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts "Code action")
-    -- map("n", "gr", vim.lsp.buf.references, opts "Show references")
+    map("n", "gr", vim.lsp.buf.references, opts "Show references")
 end
 
 -- disable semanticTokens

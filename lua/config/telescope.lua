@@ -26,7 +26,13 @@ local options = {
             "filename_first"
         },
     },
-
+    pickers = {
+        lsp_references = {
+            path_display = {
+                "filename_first"
+            }
+        }
+    },
     extensions_list = { "grapple" },
     extensions = {},
 }
