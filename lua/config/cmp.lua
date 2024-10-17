@@ -98,16 +98,27 @@ local options = {
     sources = {
         -- Default source
         { name = "nvim_lsp" },
-        { name = "luasnip" },
         { name = 'nvim_lsp_signature_help' },
-        { name = "buffer" },
-        { name = "nvim_lua" },
         { name = "path" },
+        { name = "luasnip" },
+        -- { name = "buffer" },
+        -- { name = "nvim_lua" },
     },
 }
 
 if cmp_style ~= "atom" and cmp_style ~= "atom_colored" then
     options.window.completion.border = border "CmpBorder"
 end
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+-- cmp.setup.cmdline(':', {
+--     mapping = cmp.mapping.preset.cmdline(),
+--     sources = cmp.config.sources({
+--         { name = 'path' }
+--     }, {
+--         { name = 'cmdline' }
+--     }),
+--     matching = { disallow_symbol_nonprefix_matching = false }
+-- })
 
 return options
