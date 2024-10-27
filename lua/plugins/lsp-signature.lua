@@ -1,5 +1,6 @@
 return {
     "ray-x/lsp_signature.nvim",
+    enabled = false,
     event = "VeryLazy",
     opts = {
         handler_opts = {
@@ -7,8 +8,8 @@ return {
         },
         hint_enable = true,
         hint_prefix = '󰇥 ',
-        floating_window = true,
-        floating_window_off_y = -2
+        hint_scheme = "Type",
+        floating_window = false
     },
     config = function(_, opts)
         require("lsp_signature").setup(opts)
