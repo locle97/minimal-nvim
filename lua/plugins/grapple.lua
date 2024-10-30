@@ -16,6 +16,8 @@ return {
     opts = {
         scope = "git",
         icons = true, -- setting to "true" requires "nvim-web-devicons"
-        status = true
+        status = true,
+        name_pos = "start",
+        style = "basename"
     }
 }

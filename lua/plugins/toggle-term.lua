@@ -6,7 +6,7 @@ return {
             open_mapping = [[<c-\>]],
             direction = "float",
             shade_terminals = true,
-            shell = "fish"
+            shell = "/bin/fish"
         }
     end,
 }
