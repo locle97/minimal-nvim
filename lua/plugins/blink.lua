@@ -6,14 +6,12 @@ return {
     version = 'v0.*',
     opts = {
         keymap = {
-            show = '<C-e>',
-            show_documentation = '<C-e>',
-            hide_documentation = '<C-e>',
-            accept = '<CR>',
-            select_prev = "<C-p>",
-            select_next = "<C-n>",
-            scroll_documentation_up = "<C-f>",
-            scroll_documentation_down = "<C-b>",
+            ['<C-e>'] = { 'show', 'show_documentation' },
+            ['<CR>'] = { 'accept' },
+            ['<C-p>'] = { 'select_prev' },
+            ['<C-n>'] = { 'select_next' },
+            ['<C-f>'] = { 'scroll_documentation_up' },
+            ['<C-b>'] = { 'scroll_documentation_down' }
         },
 
         highlight = {
