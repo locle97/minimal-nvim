@@ -39,7 +39,8 @@ return {
                 border = 'single'
             },
             documentation = {
-                border = 'single'
+                border = 'single',
+                auto_show = true
             },
             ghost_text = {
                 enabled = true,
