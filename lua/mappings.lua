@@ -65,9 +65,6 @@ map(
 )
 map("n", "<leader>fp", "<cmd> Telescope projects <CR>", { desc = "Project" })
 
--- terminal
-map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
-
 -- toggleable
 map({ "n", "t" }, "<A-v>", function()
     require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }

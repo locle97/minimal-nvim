@@ -38,7 +38,7 @@ lspconfig.omnisharp.setup {
             EnableEditorConfigSupport = true,
             -- Specifies whether 'using' directives should be grouped and sorted during
             -- document formatting.
-            OrganizeImports = true,
+            OrganizeImports = false,
         },
         RoslynExtensionsOptions = {
             -- Enables support for roslyn analyzers, code fixes and rulesets.
@@ -49,7 +49,7 @@ lspconfig.omnisharp.setup {
             -- have a negative impact on initial completion responsiveness,
             -- particularly for the first few completion sessions after opening a
             -- solution.
-            EnableImportCompletion = true,
+            EnableImportCompletion = false,
             -- Only run analyzers against open files when 'enableRoslynAnalyzers' is
             -- true
             AnalyzeOpenDocumentsOnly = false,
