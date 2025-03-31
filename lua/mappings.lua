@@ -1,5 +1,8 @@
 local map = vim.keymap.set
 
+map("n", "<leader>h", "yiw:%s/<C-r>\"//gI<Left><Left><Left>", { desc = "Replace current word" })
+map("v", "<leader>h", "y:%s/<C-r>\"//gI<Left><Left><Left>", { noremap = true, silent = false, desc = "Replace current selected text" })
+
 map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
 map("i", "<C-e>", "<End>", { desc = "move end of line" })
 map("i", "<C-h>", "<Left>", { desc = "move left" })
