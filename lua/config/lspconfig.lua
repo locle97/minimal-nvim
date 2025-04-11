@@ -4,7 +4,7 @@ require("nvchad.lspconfig").defaults()
 local lspconfig = require("lspconfig")
 
 -- List server
-local servers = { "emmet_language_server", "ts_ls", "html", "cssls", "jsonls", "pylsp" }
+local servers = { "emmet_language_server", "ts_ls", "html", "cssls", "jsonls", "pylsp", "angularls"}
 
 local nvlsp = require "nvchad.lspconfig"
 
