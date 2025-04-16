@@ -7,9 +7,9 @@ return {
         require('lualine').setup {
             options = { theme = 'catppuccin' },
             sections = {
-                lualine_b = { 'branch', 'diff' },
-                lualine_c = { 'grapple', 'filename' },
-                lualine_x = { 'diagnostics', utils.lsp, 'fileformat', 'filetype' },
+                lualine_b = { 'branch' },
+                lualine_c = { 'grapple', 'buffers' },
+                lualine_x = { 'diff', 'diagnostics', utils.lsp, 'fileformat', 'filetype' },
             }
         }
     end
