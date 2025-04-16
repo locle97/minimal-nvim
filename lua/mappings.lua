@@ -24,6 +24,11 @@ map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "Toggle line number" })
 map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "Toggle relative number" })
 map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "Toggle nvcheatsheet" })
 
+map("x", "p", "\"_dP", { desc = "In visual mode, when pasting, no copy deleted words" })
+map("n", "J", "mzJ`z", { desc = "No jumping to end of line when J" })
+map("n", "n", "nzzzv", { desc = "Jump to next search centralize screen" })
+map("n", "N", "Nzzzv", { desc = "Jump to next search centralize screen" })
+
 map("n", "<leader>fm", function()
     require("conform").format { lsp_fallback = true }
 end, { desc = "General Format file" })
