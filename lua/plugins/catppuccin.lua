@@ -11,9 +11,6 @@ return {
                     dark = "mocha",
                 },
                 transparent_background = true,
-                integrations = {
-                    bufferline = true
-                },
                 custom_highlights = function(C)
                     return {
                         -- Cmp Menu
