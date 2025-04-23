@@ -1,12 +1,19 @@
 -- load defaults i.e lua_lsp
 local lspconfig = require("lspconfig")
 
+-- disable semanticTokens
+local on_init = function(client, _)
+    if client.supports_method "textDocument/semanticTokens" then
+        client.server_capabilities.semanticTokensProvider = nil
+    end
+end
 -- List server
 local servers = { "lua_ls", "emmet_language_server", "ts_ls", "html", "cssls", "jsonls", "pylsp", "angularls"}
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
+        on_init = on_init
     }
 end
 
@@ -20,6 +27,7 @@ lspconfig.omnisharp.setup {
         "--hostPID",
         tostring(pid),
     },
+    on_init = on_init,
     settings = {
         FormattingOptions = {
             -- Enables support for reading code style, naming convention and analyzer
