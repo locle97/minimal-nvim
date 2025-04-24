@@ -43,8 +43,9 @@ return {
         -- (Default) Only show the documentation popup when manually triggered
         completion = {
             documentation = { auto_show = false, window = { border = 'single' } },
-            ghost_text = { enabled = true },
-            menu = { border = 'single', draw = {columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } } } },
+            ghost_text = { enabled = false },
+            menu = { border = 'single', draw = {columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } } } },
+            accept = {auto_brackets = {enabled = false } },
         },
 
         -- Default list of enabled providers defined so that you can extend it
