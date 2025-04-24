@@ -44,7 +44,7 @@ return {
         completion = {
             documentation = { auto_show = false, window = { border = 'single' } },
             ghost_text = { enabled = true },
-            menu = { border = 'single' },
+            menu = { border = 'single', draw = {columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } } } },
         },
 
         -- Default list of enabled providers defined so that you can extend it
