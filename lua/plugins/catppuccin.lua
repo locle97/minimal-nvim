@@ -29,7 +29,7 @@ return {
                     }
                 end
             })
-            require("themes")
+            vim.cmd.colorscheme "catppuccin"
         end
     }
 }
