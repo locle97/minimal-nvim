@@ -166,4 +166,11 @@ map({"n", "t"}, "<C-t>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Term"})
 -- map("n", "<leader>hh", function() require("harpoon.ui").toggle_quick_menu() end, { desc = "Toggle quick menu" })
 -- map("n", "<leader>hf", "<cmd>Telescope harpoon marks<CR>", { desc = "Toggle harpoon pickers" })
 
+-- Tmux
+map("n", "<c-h>",  "<cmd>TmuxNavigateLeft<cr>")
+map("n", "<c-j>",  "<cmd>TmuxNavigateDown<cr>")
+map("n", "<c-k>",  "<cmd>TmuxNavigateUp<cr>")
+map("n", "<c-l>",  "<cmd>TmuxNavigateRight<cr>")
+map("n", "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>")
+
 -- End user config
