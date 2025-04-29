@@ -60,6 +60,11 @@ local mason_registry = require('mason-registry')
 local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() ..
 '/node_modules/@vue/language-server'
 
+lspconfig.html.setup {
+    on_init = on_init,
+    filetypes = { 'html', 'vue', 'jsx'},
+}
+
 lspconfig.ts_ls.setup {
     init_options = {
         plugins = {
