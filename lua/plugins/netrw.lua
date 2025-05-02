@@ -2,6 +2,8 @@ return {
     'prichrd/netrw.nvim',
     opts = {},
     config = function()
+        local g = vim.g
+
         require("netrw").setup({
             -- File icons to use when `use_devicons` is false or if
             -- no icon is found for the given file type.
@@ -12,12 +14,6 @@ return {
             },
             -- Uses mini.icon or nvim-web-devicons if true, otherwise use the file icon specified above
             use_devicons = true,
-            mappings = {
-                -- Function mappings receive an object describing the node under the cursor
-                ['p'] = function(payload) print(vim.inspect(payload)) end,
-                -- String mappings are executed as vim commands
-                ['<Leader>p'] = ":echo 'hello world'<CR>"
-            },
         })
 
         -- Modify keymap for netrw
@@ -31,8 +27,14 @@ return {
 
                 -- edit new file
                 bind('o', '<CR>')
-                bind('q', '<cmd>q<CR>')
+                vim.keymap.set('n', 'q', '<C-^>', { noremap = true, buffer = true, silent = true, nowait = true })
             end
         })
+
+        -- Netrw
+        g.netrw_liststyle = 3
+        g.netrw_banner = 0
+        g.netrw_hide = 1
+        g.netrw_browse_split = 0
     end
 }

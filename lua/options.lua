@@ -29,8 +29,3 @@ vim.filetype.add({
 })
 
 vim.cmd('highlight St_Lsp guifg=#94e2d5')
-
--- Netrw
-g.netrw_liststyle = 3
-g.netrw_banner = 0
-g.netrw_hide = 1
