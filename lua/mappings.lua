@@ -160,7 +160,7 @@ map("n", "<leader>gl", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })
 map("n", "<leader>ga", "<cmd>Gitsigns stage_buffer<CR>", { desc = "Stage current buffer" })
 
 -- Toggle Term
-map({"n", "t"}, "<C-t>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Term"})
+-- map({"n", "t"}, "<C-t>", "<cmd>ToggleTerm<CR>", { desc = "Toggle Term"})
 
 -- Harpoon
 -- map("n", "<leader>hm", function() require('harpoon.mark').add_file() end, { desc = "Add file to harpoon" })
