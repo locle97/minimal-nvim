@@ -174,4 +174,7 @@ map("n", "<c-k>",  "<cmd>TmuxNavigateUp<cr>")
 map("n", "<c-l>",  "<cmd>TmuxNavigateRight<cr>")
 map("n", "<c-\\>", "<cmd>TmuxNavigatePrevious<cr>")
 
+-- remapping ; work as :
+map("n", ";", ":", { noremap = true, silent = false })
+
 -- End user config
