@@ -22,7 +22,7 @@ local util = require "lspconfig/util"
 
 lspconfig.omnisharp.setup {
     cmd = {
-        "omnisharp",
+        "OmniSharp",
         "--languageserver",
         "--hostPID",
         tostring(pid),
