@@ -1,6 +1,12 @@
 local symbols = { Error = "󰅙", Info = "󰋼", Hint = "󰌵", Warn = "" }
 
-for name, icon in pairs(symbols) do
-	local hl = "DiagnosticSign" .. name
-	vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
-end
+vim.diagnostic.config({
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = symbols.Error,
+            [vim.diagnostic.severity.WARN] = symbols.Warn,
+            [vim.diagnostic.severity.HINT] = symbols.Hint,
+            [vim.diagnostic.severity.INFO] = symbols.Info
+        },
+    }
+})
