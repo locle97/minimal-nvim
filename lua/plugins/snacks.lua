@@ -10,5 +10,7 @@ return {
         bigfile = { enabled = true },
         dashboard = { enabled = true },
         lazygit = { enabled = false },
+        notifier = { enabled = true },
+        quickfile = { enabled = true },
     },
 }
