@@ -15,12 +15,5 @@ return {
                 telescope.load_extension(ext)
             end
         end,
-    },
-    {
-        "ahmedkhalf/project.nvim",
-        lazy = false,
-        config = function()
-            require("project_nvim").setup {}
-        end,
     }
 }
