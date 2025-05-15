@@ -1,81 +1,44 @@
 return {
-    {
-        'saghen/blink.cmp',
-        dependencies = { 'rafamadriz/friendly-snippets' },
-        version = '1.*',
-
-        ---@module 'blink.cmp'
-        ---@type blink.cmp.Config
-        opts = {
-            keymap = {
-                preset = 'default',
-                ['<C-y>'] = { 'show', 'show_documentation', 'hide_documentation' },
-                ['<CR>'] = { 'select_and_accept', 'fallback' },
-                ['<C-space>'] = {},
-            },
-
-            signature = { enabled = true, window = { border = 'single' } },
-
-            appearance = {
-                nerd_font_variant = 'mono'
-            },
-
-            completion = {
-                documentation = { auto_show = false, window = { border = 'single' } },
-                ghost_text = { enabled = false },
-                menu = { border = 'single', draw = { columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } } } },
-                accept = { auto_brackets = { enabled = true } },
-            },
-
-            sources = {
-                default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
-                providers = {
-                    copilot = {
-                        name = "copilot",
-                        module = "blink-cmp-copilot",
-                        score_offset = 100,
-                        async = true,
-                    },
-                },
-            },
-
-            fuzzy = { implementation = "prefer_rust_with_warning" }
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    dependencies = {
+        -- autopairing of (){}[] etc
+        {
+            -- snippet plugin
+            "L3MON4D3/LuaSnip",
+            dependencies = "rafamadriz/friendly-snippets",
+            opts = { history = true, updateevents = "TextChanged,TextChangedI" },
+            config = function(_, opts)
+                require("luasnip").config.set_config(opts)
+                require "config.luasnip"
+            end,
         },
-        opts_extend = { "sources.default" }
+        {
+            "windwp/nvim-autopairs",
+            opts = {
+                fast_wrap = {},
+                disable_filetype = { "TelescopePrompt", "vim" },
+            },
+            config = function(_, opts)
+                require("nvim-autopairs").setup(opts)
+
+                -- setup cmp for autopairs
+                local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+                require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+            end,
+        },
+
+        -- cmp sources plugins
+        {
+            "saadparwaiz1/cmp_luasnip",
+            "hrsh7th/cmp-nvim-lua",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-nvim-lsp-signature-help"
+        },
     },
-    {
-        'saghen/blink.pairs',
-        version = '*', -- (recommended) only required with prebuilt binaries
-
-        -- download prebuilt binaries from github releases
-        dependencies = 'saghen/blink.download',
-        -- OR build from source
-        build = 'cargo build --release',
-        -- OR build from source with nix
-        build = 'nix build .#build-plugin',
-
-        --- @module 'blink.pairs'
-        --- @type blink.pairs.Config
-        opts = {
-            mappings = {
-                -- you can call require("blink.pairs.mappings").enable() and require("blink.pairs.mappings").disable() to enable/disable mappings at runtime
-                enabled = true,
-                -- see the defaults: https://github.com/Saghen/blink.pairs/blob/main/lua/blink/pairs/config/mappings.lua#L10
-                pairs = {},
-            },
-            highlights = {
-                enabled = true,
-                groups = {
-                    'BlinkPairsOrange',
-                    'BlinkPairsPurple',
-                    'BlinkPairsBlue',
-                },
-                matchparen = {
-                    enabled = true,
-                    group = 'MatchParen',
-                },
-            },
-            debug = false,
-        }
-    }
+    opts = function()
+        return require "config.cmp"
+    end,
 }
