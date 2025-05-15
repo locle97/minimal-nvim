@@ -21,8 +21,8 @@ return {
             },
 
             completion = {
-                documentation = { auto_show = false, window = { border = 'single' } },
-                ghost_text = { enabled = false },
+                documentation = { auto_show = true, auto_show_delay_ms = 0, window = { border = 'single' } },
+                ghost_text = { enabled = true },
                 menu = { border = 'single', draw = { columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } } } },
                 accept = { auto_brackets = { enabled = true } },
             },
@@ -52,7 +52,7 @@ return {
         -- OR build from source
         build = 'cargo build --release',
         -- OR build from source with nix
-        build = 'nix build .#build-plugin',
+        -- build = 'nix build .#build-plugin',
 
         --- @module 'blink.pairs'
         --- @type blink.pairs.Config
