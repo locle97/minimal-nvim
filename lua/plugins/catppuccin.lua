@@ -14,8 +14,6 @@ return {
                 custom_highlights = function(C)
                     return {
                         -- Cmp Menu
-                        PmenuSel = { fg = C.base, bg = C.maroon, style = { 'bold' } },
-
                         TelescopeSelection = {
                             fg = C.flamingo or C.text,
                             bg = C.surface0 or C.none,
