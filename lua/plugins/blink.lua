@@ -7,6 +7,10 @@ return {
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config
         opts = {
+            enabled = function ()
+                local filetype = vim.bo.filetype
+                return filetype ~= 'DressingInput'
+            end,
             keymap = {
                 preset = 'default',
                 ['<C-y>'] = { 'show', 'show_documentation', 'hide_documentation' },
@@ -22,7 +26,7 @@ return {
 
             completion = {
                 documentation = { auto_show = true, auto_show_delay_ms = 0, window = { border = 'single' } },
-                ghost_text = { enabled = true },
+                ghost_text = { enabled = false },
                 menu = { border = 'single', draw = { columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } } } },
                 accept = { auto_brackets = { enabled = true } },
             },
