@@ -19,11 +19,6 @@ return {
                             bg = C.surface0 or C.none,
                             style = { "bold" },
                         },
-
-                        -- BufferLine
-                        BufferLineBufferSelected = { fg = C.text, style = { 'bold' } },
-                        BufferLineIndicatorSelected = { fg = C.pink },
-                        BufferLineIndicator = { fg = C.base },
                     }
                 end
             })
