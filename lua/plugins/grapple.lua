@@ -1,7 +1,14 @@
 return {
     "cbochs/grapple.nvim",
     keys = {
-        { "<leader>mm",        "<cmd>Grapple tag<cr>",             desc = "Tag a file" },
+        {
+            "<leader>mm",
+            function()
+                require("grapple").tag()
+                vim.cmd.mark("a")
+            end,
+            desc = "Tag a file"
+        },
         { "<leader><leader>", "<cmd>Grapple toggle_tags<cr>",     desc = "Toggle tags menu" },
 
         { "<leader>1",        "<cmd>Grapple select index=1<cr>",  desc = "Select first tag" },
