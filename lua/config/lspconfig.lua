@@ -8,7 +8,7 @@ local on_init = function(client, _)
     end
 end
 -- List server
-local servers = { "lua_ls", "emmet_language_server", "ts_ls", "html", "cssls", "jsonls", "pylsp", "angularls"}
+local servers = { "emmet_language_server", "ts_ls", "html", "cssls", "jsonls", "pylsp", "angularls"}
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do

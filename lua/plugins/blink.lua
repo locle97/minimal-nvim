@@ -7,10 +7,11 @@ return {
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config
         opts = {
-            enabled = function ()
+            enabled = function()
                 local filetype = vim.bo.filetype
                 return filetype ~= 'DressingInput'
             end,
+            cmdline = { enabled = false },
             keymap = {
                 preset = 'default',
                 ['<C-y>'] = { 'show', 'show_documentation', 'hide_documentation' },
@@ -43,7 +44,15 @@ return {
                 },
             },
 
-            fuzzy = { implementation = "prefer_rust_with_warning" }
+            fuzzy = {
+                implementation = "prefer_rust_with_warning",
+                sorts = {
+                    'exact',
+                    -- defaults
+                    'score',
+                    'sort_text',
+                },
+            }
         },
         opts_extend = { "sources.default" }
     },
