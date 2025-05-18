@@ -8,7 +8,7 @@ local on_init = function(client, _)
     end
 end
 -- List server
-local servers = { "emmet_language_server", "ts_ls", "html", "cssls", "jsonls", "pylsp", "angularls"}
+local servers = { "emmet_language_server", "html", "cssls", "jsonls", "pylsp", "angularls"}
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
@@ -16,6 +16,22 @@ for _, lsp in ipairs(servers) do
         on_init = on_init
     }
 end
+
+-- For Mason v2,
+local vue_language_server_path = vim.fn.expand '$MASON/packages' .. '/vue-language-server' .. '/node_modules/@vue/language-server'
+
+lspconfig.ts_ls.setup {
+  init_options = {
+    plugins = {
+      {
+        name = '@vue/typescript-plugin',
+        location = vue_language_server_path,
+        languages = { 'vue' },
+      },
+    },
+  },
+  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+}
 
 local pid = vim.fn.getpid()
 local util = require "lspconfig/util"
